@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="enigma_gameonEntities-Web.config Connection String" description="enigma_gameonEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/ModelGameOn.csdl|res://*/ModelGameOn.ssdl|res://*/ModelGameOn.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=enigmacondos.ca\MSSQLSERVER2012;initial catalog=enigma_gameon;persist security info=True;user id=gameon_admin;password=$iOa516p;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="c:\\users\\dhammi\\documents\\visual\ studio\ 2013\\Projects\\GameOnAPIs\\GameOnAPIs\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='enigma_gameonEntities']/@connectionString" />
+  </parameter>
+</parameters>
