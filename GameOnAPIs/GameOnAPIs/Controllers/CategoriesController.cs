@@ -17,9 +17,9 @@ namespace GameOnAPIs.Controllers
         private enigma_gameonEntities db = new enigma_gameonEntities();
 
         // GET: api/Categories
-        public IQueryable<Category> GetCategories()
+        public dynamic GetCategories()
         {
-            return db.Categories;
+            return new { category = db.sp_category_get_all() };
         }
 
         // GET: api/Categories/5
