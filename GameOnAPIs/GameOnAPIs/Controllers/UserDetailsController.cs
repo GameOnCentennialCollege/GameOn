@@ -66,32 +66,10 @@ namespace GameOnAPIs.Controllers
 
         // POST: api/UserDetails
         [ResponseType(typeof(UserDetail))]
-        public IHttpActionResult PostUserDetail(UserDetail userDetail)
+        public dynamic PostUserDetail(UserDetail userDetail)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
 
-            db.UserDetails.Add(userDetail);
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateException)
-            {
-                if (UserDetailExists(userDetail.UserID))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return CreatedAtRoute("DefaultApi", new { id = userDetail.UserID }, userDetail);
+            return new { user = db.sp_user_find_by_username_password(userDetail.UserID, userDetail.UserPassword) };
         }
 
         // DELETE: api/UserDetails/5
