@@ -66,10 +66,33 @@ namespace GameOnAPIs.Controllers
 
         // POST: api/UserDetails
         [ResponseType(typeof(UserDetail))]
+        [ActionName("Login")]
         public dynamic PostUserDetail(UserDetail userDetail)
         {
 
             return new { user = db.sp_user_find_by_username_password(userDetail.UserID, userDetail.UserPassword) };
+        }
+
+        // POST: api/UserDetails/
+        [ResponseType(typeof(UserDetail))]
+        [ActionName("Register")]
+        public dynamic RegisterUserDetail(UserDetail userDetail)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            try
+            {
+                db.UserDetails.Add(userDetail);
+                db.SaveChanges();
+            }
+            catch(Exception e)
+            {
+
+            }
+            return new { user = db.sp_user_get_by_id(userDetail.UserID) };
         }
 
         // DELETE: api/UserDetails/5
