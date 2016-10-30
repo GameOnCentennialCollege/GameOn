@@ -1,0 +1,406 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="enigma_gameonModelStoreContainer" CdmEntityContainer="enigma_gameonEntities">
+    <EntitySetMapping Name="Carts">
+      <EntityTypeMapping TypeName="enigma_gameonModel.Cart">
+        <MappingFragment StoreEntitySet="Cart">
+          <ScalarProperty Name="CartID" ColumnName="CartID" />
+          <ScalarProperty Name="CartStockID" ColumnName="CartStockID" />
+          <ScalarProperty Name="CartQuantity" ColumnName="CartQuantity" />
+          <ScalarProperty Name="CartUnitCost" ColumnName="CartUnitCost" />
+          <ScalarProperty Name="CartClientID" ColumnName="CartClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="enigma_gameonModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Colors">
+      <EntityTypeMapping TypeName="enigma_gameonModel.Color">
+        <MappingFragment StoreEntitySet="Color">
+          <ScalarProperty Name="ColorID" ColumnName="ColorID" />
+          <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="enigma_gameonModel.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Images">
+      <EntityTypeMapping TypeName="enigma_gameonModel.Image">
+        <MappingFragment StoreEntitySet="Image">
+          <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+          <ScalarProperty Name="ImageProductID" ColumnName="ImageProductID" />
+          <ScalarProperty Name="image1" ColumnName="image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="enigma_gameonModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="OrderStockID" ColumnName="OrderStockID" />
+          <ScalarProperty Name="OrderQuantity" ColumnName="OrderQuantity" />
+          <ScalarProperty Name="OrderUnitCost" ColumnName="OrderUnitCost" />
+          <ScalarProperty Name="OrderUserID" ColumnName="OrderUserID" />
+          <ScalarProperty Name="OrderDateCreated" ColumnName="OrderDateCreated" />
+          <ScalarProperty Name="OrderDateShipped" ColumnName="OrderDateShipped" />
+          <ScalarProperty Name="OrderDateDelivered" ColumnName="OrderDateDelivered" />
+          <ScalarProperty Name="OderDateCancelled" ColumnName="OderDateCancelled" />
+          <ScalarProperty Name="OrderComments" ColumnName="OrderComments" />
+          <ScalarProperty Name="OrderUserName" ColumnName="OrderUserName" />
+          <ScalarProperty Name="OrderPhone" ColumnName="OrderPhone" />
+          <ScalarProperty Name="OrderAddress1" ColumnName="OrderAddress1" />
+          <ScalarProperty Name="OrderAddress2" ColumnName="OrderAddress2" />
+          <ScalarProperty Name="OrderCity" ColumnName="OrderCity" />
+          <ScalarProperty Name="OrderProvince" ColumnName="OrderProvince" />
+          <ScalarProperty Name="OrderCountry" ColumnName="OrderCountry" />
+          <ScalarProperty Name="OrderPostalCode" ColumnName="OrderPostalCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="enigma_gameonModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
+          <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+          <ScalarProperty Name="ProductSubCategoryID" ColumnName="ProductSubCategoryID" />
+          <ScalarProperty Name="ProductThumbnail" ColumnName="ProductThumbnail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reviews">
+      <EntityTypeMapping TypeName="enigma_gameonModel.Review">
+        <MappingFragment StoreEntitySet="Review">
+          <ScalarProperty Name="ReviewID" ColumnName="ReviewID" />
+          <ScalarProperty Name="Review1" ColumnName="Review" />
+          <ScalarProperty Name="ReviewProductID" ColumnName="ReviewProductID" />
+          <ScalarProperty Name="ReviewRating" ColumnName="ReviewRating" />
+          <ScalarProperty Name="ReviewUserID" ColumnName="ReviewUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sizes">
+      <EntityTypeMapping TypeName="enigma_gameonModel.Size">
+        <MappingFragment StoreEntitySet="Size">
+          <ScalarProperty Name="SizeID" ColumnName="SizeID" />
+          <ScalarProperty Name="SizeName" ColumnName="SizeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stocks">
+      <EntityTypeMapping TypeName="enigma_gameonModel.Stock">
+        <MappingFragment StoreEntitySet="Stock">
+          <ScalarProperty Name="StockID" ColumnName="StockID" />
+          <ScalarProperty Name="StockProductID" ColumnName="StockProductID" />
+          <ScalarProperty Name="StockColorID" ColumnName="StockColorID" />
+          <ScalarProperty Name="StockSizeID" ColumnName="StockSizeID" />
+          <ScalarProperty Name="StockQuantityAvailable" ColumnName="StockQuantityAvailable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubCategories">
+      <EntityTypeMapping TypeName="enigma_gameonModel.SubCategory">
+        <MappingFragment StoreEntitySet="SubCategory">
+          <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+          <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserDetails">
+      <EntityTypeMapping TypeName="enigma_gameonModel.UserDetail">
+        <MappingFragment StoreEntitySet="UserDetails">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_category_delete" FunctionName="enigma_gameonModel.Store.sp_category_delete" />
+    <FunctionImportMapping FunctionImportName="sp_category_get_all" FunctionName="enigma_gameonModel.Store.sp_category_get_all">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="enigma_gameonModel.sp_category_get_all_Result">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_category_get_all_by_department_id" FunctionName="enigma_gameonModel.Store.sp_category_get_all_by_department_id">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="enigma_gameonModel.sp_category_get_all_by_department_id_Result">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_category_insert" FunctionName="enigma_gameonModel.Store.sp_category_insert" />
+    <FunctionImportMapping FunctionImportName="sp_category_update" FunctionName="enigma_gameonModel.Store.sp_category_update" />
+    <FunctionImportMapping FunctionImportName="sp_delete_cart_details_by_cart_id" FunctionName="enigma_gameonModel.Store.sp_delete_cart_details_by_cart_id" />
+    <FunctionImportMapping FunctionImportName="sp_department_delete" FunctionName="enigma_gameonModel.Store.sp_department_delete" />
+    <FunctionImportMapping FunctionImportName="sp_department_get_all" FunctionName="enigma_gameonModel.Store.sp_department_get_all">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="enigma_gameonModel.sp_department_get_all_Result">
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_department_get_by_id" FunctionName="enigma_gameonModel.Store.sp_department_get_by_id">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="enigma_gameonModel.sp_department_get_by_id_Result">
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_department_insert" FunctionName="enigma_gameonModel.Store.sp_department_insert" />
+    <FunctionImportMapping FunctionImportName="sp_department_update" FunctionName="enigma_gameonModel.Store.sp_department_update" />
+    <FunctionImportMapping FunctionImportName="sp_get_all_categories_by_department_id" FunctionName="enigma_gameonModel.Store.sp_get_all_categories_by_department_id">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="enigma_gameonModel.sp_get_all_categories_by_department_id_Result">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_get_all_sub_categories_by_category_id" FunctionName="enigma_gameonModel.Store.sp_get_all_sub_categories_by_category_id">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="enigma_gameonModel.sp_get_all_sub_categories_by_category_id_Result">
+          <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+          <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_get_cart_details_by_user_id" FunctionName="enigma_gameonModel.Store.sp_get_cart_details_by_user_id">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="enigma_gameonModel.sp_get_cart_details_by_user_id_Result">
+          <ScalarProperty Name="CartID" ColumnName="CartID" />
+          <ScalarProperty Name="CartStockID" ColumnName="CartStockID" />
+          <ScalarProperty Name="CartQuantity" ColumnName="CartQuantity" />
+          <ScalarProperty Name="CartUnitCost" ColumnName="CartUnitCost" />
+          <ScalarProperty Name="CartClientID" ColumnName="CartClientID" />
+          <ScalarProperty Name="StockID" ColumnName="StockID" />
+          <ScalarProperty Name="StockProductID" ColumnName="StockProductID" />
+          <ScalarProperty Name="StockColorID" ColumnName="StockColorID" />
+          <ScalarProperty Name="StockSizeID" ColumnName="StockSizeID" />
+          <ScalarProperty Name="StockQuantityAvailable" ColumnName="StockQuantityAvailable" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
+          <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+          <ScalarProperty Name="ProductSubCategoryID" ColumnName="ProductSubCategoryID" />
+          <ScalarProperty Name="ProductThumbnail" ColumnName="ProductThumbnail" />
+          <ScalarProperty Name="ColorID" ColumnName="ColorID" />
+          <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+          <ScalarProperty Name="SizeID" ColumnName="SizeID" />
+          <ScalarProperty Name="SizeName" ColumnName="SizeName" />
+          <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_get_colours_by_product_id" FunctionName="enigma_gameonModel.Store.sp_get_colours_by_product_id">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="enigma_gameonModel.sp_get_colours_by_product_id_Result">
+          <ScalarProperty Name="ColorID" ColumnName="ColorID" />
+          <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_get_images_by_product_id" FunctionName="enigma_gameonModel.Store.sp_get_images_by_product_id">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="enigma_gameonModel.sp_get_images_by_product_id_Result">
+          <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+          <ScalarProperty Name="ImageProductID" ColumnName="ImageProductID" />
+          <ScalarProperty Name="image" ColumnName="image" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_get_product_details_by_id" FunctionName="enigma_gameonModel.Store.sp_get_product_details_by_id">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="enigma_gameonModel.sp_get_product_details_by_id_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
+          <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+          <ScalarProperty Name="ProductSubCategoryID" ColumnName="ProductSubCategoryID" />
+          <ScalarProperty Name="ProductThumbnail" ColumnName="ProductThumbnail" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_get_recently_added_products" FunctionName="enigma_gameonModel.Store.sp_get_recently_added_products">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="enigma_gameonModel.sp_get_recently_added_products_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
+          <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+          <ScalarProperty Name="ProductSubCategoryID" ColumnName="ProductSubCategoryID" />
+          <ScalarProperty Name="ProductThumbnail" ColumnName="ProductThumbnail" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_get_sizes_by_product_id" FunctionName="enigma_gameonModel.Store.sp_get_sizes_by_product_id">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="enigma_gameonModel.sp_get_sizes_by_product_id_Result">
+          <ScalarProperty Name="SizeID" ColumnName="SizeID" />
+          <ScalarProperty Name="SizeName" ColumnName="SizeName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_get_stock_by_product_id_color_id_size_id" FunctionName="enigma_gameonModel.Store.sp_get_stock_by_product_id_color_id_size_id">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="enigma_gameonModel.sp_get_stock_by_product_id_color_id_size_id_Result">
+          <ScalarProperty Name="StockID" ColumnName="StockID" />
+          <ScalarProperty Name="StockProductID" ColumnName="StockProductID" />
+          <ScalarProperty Name="StockColorID" ColumnName="StockColorID" />
+          <ScalarProperty Name="StockSizeID" ColumnName="StockSizeID" />
+          <ScalarProperty Name="StockQuantityAvailable" ColumnName="StockQuantityAvailable" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_get_top_three_products_by_category_id" FunctionName="enigma_gameonModel.Store.sp_get_top_three_products_by_category_id">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="enigma_gameonModel.sp_get_top_three_products_by_category_id_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
+          <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+          <ScalarProperty Name="ProductSubCategoryID" ColumnName="ProductSubCategoryID" />
+          <ScalarProperty Name="ProductThumbnail" ColumnName="ProductThumbnail" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_get_top_three_products_by_sub_category_id" FunctionName="enigma_gameonModel.Store.sp_get_top_three_products_by_sub_category_id">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="enigma_gameonModel.sp_get_top_three_products_by_sub_category_id_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
+          <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+          <ScalarProperty Name="ProductSubCategoryID" ColumnName="ProductSubCategoryID" />
+          <ScalarProperty Name="ProductThumbnail" ColumnName="ProductThumbnail" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_insert_into_cart" FunctionName="enigma_gameonModel.Store.sp_insert_into_cart" />
+    <FunctionImportMapping FunctionImportName="sp_product_delete" FunctionName="enigma_gameonModel.Store.sp_product_delete" />
+    <FunctionImportMapping FunctionImportName="sp_product_get_all" FunctionName="enigma_gameonModel.Store.sp_product_get_all">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="enigma_gameonModel.sp_product_get_all_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
+          <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+          <ScalarProperty Name="ProductSubCategoryID" ColumnName="ProductSubCategoryID" />
+          <ScalarProperty Name="ProductThumbnail" ColumnName="ProductThumbnail" />
+          <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_product_get_all_by_sub_category_id" FunctionName="enigma_gameonModel.Store.sp_product_get_all_by_sub_category_id">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="enigma_gameonModel.sp_product_get_all_by_sub_category_id_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
+          <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+          <ScalarProperty Name="ProductSubCategoryID" ColumnName="ProductSubCategoryID" />
+          <ScalarProperty Name="ProductThumbnail" ColumnName="ProductThumbnail" />
+          <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_product_insert" FunctionName="enigma_gameonModel.Store.sp_product_insert" />
+    <FunctionImportMapping FunctionImportName="sp_product_update" FunctionName="enigma_gameonModel.Store.sp_product_update" />
+    <FunctionImportMapping FunctionImportName="sp_sub_category_delete" FunctionName="enigma_gameonModel.Store.sp_sub_category_delete" />
+    <FunctionImportMapping FunctionImportName="sp_sub_category_get_all" FunctionName="enigma_gameonModel.Store.sp_sub_category_get_all">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="enigma_gameonModel.sp_sub_category_get_all_Result">
+          <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+          <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="categoryname" ColumnName="categoryname" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_sub_category_get_all_by_category_id" FunctionName="enigma_gameonModel.Store.sp_sub_category_get_all_by_category_id">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="enigma_gameonModel.sp_sub_category_get_all_by_category_id_Result">
+          <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+          <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="categoryname" ColumnName="categoryname" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_sub_category_insert" FunctionName="enigma_gameonModel.Store.sp_sub_category_insert" />
+    <FunctionImportMapping FunctionImportName="sp_sub_category_update" FunctionName="enigma_gameonModel.Store.sp_sub_category_update" />
+    <FunctionImportMapping FunctionImportName="sp_user_delete" FunctionName="enigma_gameonModel.Store.sp_user_delete" />
+    <FunctionImportMapping FunctionImportName="sp_user_find_by_username_password" FunctionName="enigma_gameonModel.Store.sp_user_find_by_username_password">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="enigma_gameonModel.sp_user_find_by_username_password_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_user_get_all" FunctionName="enigma_gameonModel.Store.sp_user_get_all">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="enigma_gameonModel.sp_user_get_all_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_user_get_by_id" FunctionName="enigma_gameonModel.Store.sp_user_get_by_id">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="enigma_gameonModel.sp_user_get_by_id_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_user_insert" FunctionName="enigma_gameonModel.Store.sp_user_insert" />
+    <FunctionImportMapping FunctionImportName="sp_user_update" FunctionName="enigma_gameonModel.Store.sp_user_update" />
+    <FunctionImportMapping FunctionImportName="sp_sub_category_get_by_id" FunctionName="enigma_gameonModel.Store.sp_sub_category_get_by_id">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="enigma_gameonModel.sp_sub_category_get_by_id_Result">
+          <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+          <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
