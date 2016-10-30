@@ -154,6 +154,7 @@
     <Compile Include="Color.cs">
       <DependentUpon>ModelGameOn.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Department.cs">
       <DependentUpon>ModelGameOn.tt</DependentUpon>
     </Compile>
@@ -319,7 +320,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
