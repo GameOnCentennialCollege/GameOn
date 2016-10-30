@@ -156,6 +156,7 @@
     </Compile>
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\SubCategoriesController.cs" />
     <Compile Include="Controllers\UserDetailsController.cs" />
     <Compile Include="Department.cs">
       <DependentUpon>ModelGameOn.tt</DependentUpon>
