@@ -155,6 +155,7 @@
     <Compile Include="Color.cs">
       <DependentUpon>ModelGameOn.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\CartsController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\ColorsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
