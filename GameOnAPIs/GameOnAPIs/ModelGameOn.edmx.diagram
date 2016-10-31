@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ff95c90097f149e1a1d91b787b9a619c" Name="Diagram1">
+        <EntityTypeShape EntityType="enigma_gameonModel.Cart" Width="1.5" PointX="15" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="enigma_gameonModel.Category" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="enigma_gameonModel.Color" Width="1.5" PointX="10.5" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="enigma_gameonModel.Department" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="enigma_gameonModel.Image" Width="1.5" PointX="9.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="enigma_gameonModel.Order" Width="1.5" PointX="18" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="enigma_gameonModel.Product" Width="1.5" PointX="7.5" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="enigma_gameonModel.Review" Width="1.5" PointX="9.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="enigma_gameonModel.Size" Width="1.5" PointX="10.5" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="enigma_gameonModel.Stock" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="enigma_gameonModel.SubCategory" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="enigma_gameonModel.UserDetail" Width="1.5" PointX="7.5" PointY="3" IsExpanded="true" />
+        <AssociationConnector Association="enigma_gameonModel.FK_Cart_Stock" ManuallyRouted="false" />
+        <AssociationConnector Association="enigma_gameonModel.FK_Category_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="enigma_gameonModel.FK_SubCategory_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="enigma_gameonModel.FK_Stock_Color" ManuallyRouted="false" />
+        <AssociationConnector Association="enigma_gameonModel.FK_Image_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="enigma_gameonModel.FK_Order_Stock" ManuallyRouted="false" />
+        <AssociationConnector Association="enigma_gameonModel.FK_Order_User" ManuallyRouted="false" />
+        <AssociationConnector Association="enigma_gameonModel.FK_Product_SubCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="enigma_gameonModel.FK_Review_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="enigma_gameonModel.FK_Stock_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="enigma_gameonModel.FK_Review_User" ManuallyRouted="false" />
+        <AssociationConnector Association="enigma_gameonModel.FK_Stock_Size" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

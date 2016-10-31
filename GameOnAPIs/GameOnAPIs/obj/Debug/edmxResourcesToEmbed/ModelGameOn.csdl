@@ -1,0 +1,651 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="enigma_gameonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="CartID" />
+    </Key>
+    <Property Name="CartID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CartStockID" Type="Int32" Nullable="false" />
+    <Property Name="CartQuantity" Type="Int32" Nullable="false" />
+    <Property Name="CartUnitCost" Type="Double" Nullable="false" />
+    <Property Name="CartClientID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Stock" Relationship="Self.FK_Cart_Stock" FromRole="Cart" ToRole="Stock" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DepartmentID" Type="Int32" />
+    <NavigationProperty Name="Department" Relationship="Self.FK_Category_Department" FromRole="Category" ToRole="Department" />
+    <NavigationProperty Name="SubCategories" Relationship="Self.FK_SubCategory_Category" FromRole="Category" ToRole="SubCategory" />
+  </EntityType>
+  <EntityType Name="Color">
+    <Key>
+      <PropertyRef Name="ColorID" />
+    </Key>
+    <Property Name="ColorID" Type="Int32" Nullable="false" />
+    <Property Name="ColorName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Stocks" Relationship="Self.FK_Stock_Color" FromRole="Color" ToRole="Stock" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="DepartmentId" />
+    </Key>
+    <Property Name="DepartmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Categories" Relationship="Self.FK_Category_Department" FromRole="Department" ToRole="Category" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="ImageID" />
+    </Key>
+    <Property Name="ImageID" Type="Int32" Nullable="false" />
+    <Property Name="ImageProductID" Type="Int32" Nullable="false" />
+    <Property Name="image1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_Image_Product" FromRole="Image" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" />
+    <Property Name="OrderStockID" Type="Int32" Nullable="false" />
+    <Property Name="OrderQuantity" Type="Int32" Nullable="false" />
+    <Property Name="OrderUnitCost" Type="Double" Nullable="false" />
+    <Property Name="OrderUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OrderDateCreated" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="OrderDateShipped" Type="DateTime" Precision="0" />
+    <Property Name="OrderDateDelivered" Type="DateTime" Precision="0" />
+    <Property Name="OderDateCancelled" Type="DateTime" Precision="0" />
+    <Property Name="OrderComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="OrderUserName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OrderPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OrderAddress1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OrderAddress2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OrderCity" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OrderProvince" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OrderCountry" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OrderPostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Stock" Relationship="Self.FK_Order_Stock" FromRole="Order" ToRole="Stock" />
+    <NavigationProperty Name="UserDetail" Relationship="Self.FK_Order_User" FromRole="Order" ToRole="UserDetails" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProductDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProductPrice" Type="Double" Nullable="false" />
+    <Property Name="ProductSubCategoryID" Type="Int32" Nullable="false" />
+    <Property Name="ProductThumbnail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Images" Relationship="Self.FK_Image_Product" FromRole="Product" ToRole="Image" />
+    <NavigationProperty Name="SubCategory" Relationship="Self.FK_Product_SubCategory" FromRole="Product" ToRole="SubCategory" />
+    <NavigationProperty Name="Reviews" Relationship="Self.FK_Review_Product" FromRole="Product" ToRole="Review" />
+    <NavigationProperty Name="Stocks" Relationship="Self.FK_Stock_Product" FromRole="Product" ToRole="Stock" />
+  </EntityType>
+  <EntityType Name="Review">
+    <Key>
+      <PropertyRef Name="ReviewID" />
+    </Key>
+    <Property Name="ReviewID" Type="Int32" Nullable="false" />
+    <Property Name="Review1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ReviewProductID" Type="Int32" Nullable="false" />
+    <Property Name="ReviewRating" Type="Int32" />
+    <Property Name="ReviewUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_Review_Product" FromRole="Review" ToRole="Product" />
+    <NavigationProperty Name="UserDetail" Relationship="Self.FK_Review_User" FromRole="Review" ToRole="UserDetails" />
+  </EntityType>
+  <EntityType Name="Size">
+    <Key>
+      <PropertyRef Name="SizeID" />
+    </Key>
+    <Property Name="SizeID" Type="Int32" Nullable="false" />
+    <Property Name="SizeName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Stocks" Relationship="Self.FK_Stock_Size" FromRole="Size" ToRole="Stock" />
+  </EntityType>
+  <EntityType Name="Stock">
+    <Key>
+      <PropertyRef Name="StockID" />
+    </Key>
+    <Property Name="StockID" Type="Int32" Nullable="false" />
+    <Property Name="StockProductID" Type="Int32" Nullable="false" />
+    <Property Name="StockColorID" Type="Int32" Nullable="false" />
+    <Property Name="StockSizeID" Type="Int32" Nullable="false" />
+    <Property Name="StockQuantityAvailable" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Carts" Relationship="Self.FK_Cart_Stock" FromRole="Stock" ToRole="Cart" />
+    <NavigationProperty Name="Color" Relationship="Self.FK_Stock_Color" FromRole="Stock" ToRole="Color" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Stock" FromRole="Stock" ToRole="Order" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_Stock_Product" FromRole="Stock" ToRole="Product" />
+    <NavigationProperty Name="Size" Relationship="Self.FK_Stock_Size" FromRole="Stock" ToRole="Size" />
+  </EntityType>
+  <EntityType Name="SubCategory">
+    <Key>
+      <PropertyRef Name="SubCategoryID" />
+    </Key>
+    <Property Name="SubCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubCategoryName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_SubCategory_Category" FromRole="SubCategory" ToRole="Category" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Product_SubCategory" FromRole="SubCategory" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="UserDetail">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserPassword" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Order_User" FromRole="UserDetails" ToRole="Order" />
+    <NavigationProperty Name="Reviews" Relationship="Self.FK_Review_User" FromRole="UserDetails" ToRole="Review" />
+  </EntityType>
+  <Association Name="FK_Cart_Stock">
+    <End Role="Stock" Type="Self.Stock" Multiplicity="1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stock">
+        <PropertyRef Name="StockID" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="CartStockID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Category_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Category" Type="Self.Category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DepartmentId" />
+      </Principal>
+      <Dependent Role="Category">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategory_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="SubCategory">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stock_Color">
+    <End Role="Color" Type="Self.Color" Multiplicity="1" />
+    <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Color">
+        <PropertyRef Name="ColorID" />
+      </Principal>
+      <Dependent Role="Stock">
+        <PropertyRef Name="StockColorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Image_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Image" Type="Self.Image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Image">
+        <PropertyRef Name="ImageProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Stock">
+    <End Role="Stock" Type="Self.Stock" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stock">
+        <PropertyRef Name="StockID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="OrderStockID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_User">
+    <End Role="UserDetails" Type="Self.UserDetail" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserDetails">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="OrderUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_SubCategory">
+    <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategory">
+        <PropertyRef Name="SubCategoryID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ProductSubCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Review_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Review" Type="Self.Review" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Review">
+        <PropertyRef Name="ReviewProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stock_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Stock">
+        <PropertyRef Name="StockProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Review_User">
+    <End Role="UserDetails" Type="Self.UserDetail" Multiplicity="1" />
+    <End Role="Review" Type="Self.Review" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserDetails">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Review">
+        <PropertyRef Name="ReviewUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stock_Size">
+    <End Role="Size" Type="Self.Size" Multiplicity="1" />
+    <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Size">
+        <PropertyRef Name="SizeID" />
+      </Principal>
+      <Dependent Role="Stock">
+        <PropertyRef Name="StockSizeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="enigma_gameonEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Carts" EntityType="Self.Cart" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Colors" EntityType="Self.Color" />
+    <EntitySet Name="Departments" EntityType="Self.Department" />
+    <EntitySet Name="Images" EntityType="Self.Image" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="Reviews" EntityType="Self.Review" />
+    <EntitySet Name="Sizes" EntityType="Self.Size" />
+    <EntitySet Name="Stocks" EntityType="Self.Stock" />
+    <EntitySet Name="SubCategories" EntityType="Self.SubCategory" />
+    <EntitySet Name="UserDetails" EntityType="Self.UserDetail" />
+    <AssociationSet Name="FK_Cart_Stock" Association="Self.FK_Cart_Stock">
+      <End Role="Stock" EntitySet="Stocks" />
+      <End Role="Cart" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Category_Department" Association="Self.FK_Category_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Category" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategory_Category" Association="Self.FK_SubCategory_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="SubCategory" EntitySet="SubCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stock_Color" Association="Self.FK_Stock_Color">
+      <End Role="Color" EntitySet="Colors" />
+      <End Role="Stock" EntitySet="Stocks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Image_Product" Association="Self.FK_Image_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Image" EntitySet="Images" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Stock" Association="Self.FK_Order_Stock">
+      <End Role="Stock" EntitySet="Stocks" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_User" Association="Self.FK_Order_User">
+      <End Role="UserDetails" EntitySet="UserDetails" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_SubCategory" Association="Self.FK_Product_SubCategory">
+      <End Role="SubCategory" EntitySet="SubCategories" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Review_Product" Association="Self.FK_Review_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Review" EntitySet="Reviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stock_Product" Association="Self.FK_Stock_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Stock" EntitySet="Stocks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Review_User" Association="Self.FK_Review_User">
+      <End Role="UserDetails" EntitySet="UserDetails" />
+      <End Role="Review" EntitySet="Reviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stock_Size" Association="Self.FK_Stock_Size">
+      <End Role="Size" EntitySet="Sizes" />
+      <End Role="Stock" EntitySet="Stocks" />
+    </AssociationSet>
+    <FunctionImport Name="sp_category_delete">
+      <Parameter Name="category_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_category_get_all" ReturnType="Collection(enigma_gameonModel.sp_category_get_all_Result)" />
+    <FunctionImport Name="sp_category_get_all_by_department_id" ReturnType="Collection(enigma_gameonModel.sp_category_get_all_by_department_id_Result)">
+      <Parameter Name="department_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_category_insert">
+      <Parameter Name="category_name" Mode="In" Type="String" />
+      <Parameter Name="department_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_category_update">
+      <Parameter Name="category_id" Mode="In" Type="Int32" />
+      <Parameter Name="category_name" Mode="In" Type="String" />
+      <Parameter Name="department_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_delete_cart_details_by_cart_id">
+      <Parameter Name="cart_id" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_department_delete">
+      <Parameter Name="department_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_department_get_all" ReturnType="Collection(enigma_gameonModel.sp_department_get_all_Result)" />
+    <FunctionImport Name="sp_department_get_by_id" ReturnType="Collection(enigma_gameonModel.sp_department_get_by_id_Result)">
+      <Parameter Name="department_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_department_insert">
+      <Parameter Name="department_name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_department_update">
+      <Parameter Name="department_id" Mode="In" Type="Int32" />
+      <Parameter Name="department_name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_get_all_categories_by_department_id" ReturnType="Collection(enigma_gameonModel.sp_get_all_categories_by_department_id_Result)">
+      <Parameter Name="department_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_get_all_sub_categories_by_category_id" ReturnType="Collection(enigma_gameonModel.sp_get_all_sub_categories_by_category_id_Result)">
+      <Parameter Name="category_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_get_cart_details_by_user_id" ReturnType="Collection(enigma_gameonModel.sp_get_cart_details_by_user_id_Result)">
+      <Parameter Name="user_id" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_get_colours_by_product_id" ReturnType="Collection(enigma_gameonModel.sp_get_colours_by_product_id_Result)">
+      <Parameter Name="product_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_get_images_by_product_id" ReturnType="Collection(enigma_gameonModel.sp_get_images_by_product_id_Result)">
+      <Parameter Name="product_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_get_product_details_by_id" ReturnType="Collection(enigma_gameonModel.sp_get_product_details_by_id_Result)">
+      <Parameter Name="product_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_get_recently_added_products" ReturnType="Collection(enigma_gameonModel.sp_get_recently_added_products_Result)" />
+    <FunctionImport Name="sp_get_sizes_by_product_id" ReturnType="Collection(enigma_gameonModel.sp_get_sizes_by_product_id_Result)">
+      <Parameter Name="product_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_get_stock_by_product_id_color_id_size_id" ReturnType="Collection(enigma_gameonModel.sp_get_stock_by_product_id_color_id_size_id_Result)">
+      <Parameter Name="product_id" Mode="In" Type="Int32" />
+      <Parameter Name="color_id" Mode="In" Type="Int32" />
+      <Parameter Name="size_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_get_top_three_products_by_category_id" ReturnType="Collection(enigma_gameonModel.sp_get_top_three_products_by_category_id_Result)">
+      <Parameter Name="category_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_get_top_three_products_by_sub_category_id" ReturnType="Collection(enigma_gameonModel.sp_get_top_three_products_by_sub_category_id_Result)">
+      <Parameter Name="sub_category_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_insert_into_cart">
+      <Parameter Name="stock_id" Mode="In" Type="Int32" />
+      <Parameter Name="quantity" Mode="In" Type="Int32" />
+      <Parameter Name="unitCost" Mode="In" Type="Double" />
+      <Parameter Name="userID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_product_delete">
+      <Parameter Name="product_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_product_get_all" ReturnType="Collection(enigma_gameonModel.sp_product_get_all_Result)" />
+    <FunctionImport Name="sp_product_get_all_by_sub_category_id" ReturnType="Collection(enigma_gameonModel.sp_product_get_all_by_sub_category_id_Result)">
+      <Parameter Name="sub_category_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_product_insert">
+      <Parameter Name="product_name" Mode="In" Type="String" />
+      <Parameter Name="product_description" Mode="In" Type="String" />
+      <Parameter Name="product_price" Mode="In" Type="Double" />
+      <Parameter Name="product_thumbnail" Mode="In" Type="String" />
+      <Parameter Name="product_sub_category_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_product_update">
+      <Parameter Name="product_id" Mode="In" Type="Int32" />
+      <Parameter Name="product_name" Mode="In" Type="String" />
+      <Parameter Name="product_description" Mode="In" Type="String" />
+      <Parameter Name="product_price" Mode="In" Type="Double" />
+      <Parameter Name="product_thumbnail" Mode="In" Type="String" />
+      <Parameter Name="product_sub_category_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_sub_category_delete">
+      <Parameter Name="sub_category_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_sub_category_get_all" ReturnType="Collection(enigma_gameonModel.sp_sub_category_get_all_Result)" />
+    <FunctionImport Name="sp_sub_category_get_all_by_category_id" ReturnType="Collection(enigma_gameonModel.sp_sub_category_get_all_by_category_id_Result)">
+      <Parameter Name="category_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_sub_category_insert">
+      <Parameter Name="sub_category_name" Mode="In" Type="String" />
+      <Parameter Name="category_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_sub_category_update">
+      <Parameter Name="sub_category_id" Mode="In" Type="Int32" />
+      <Parameter Name="sub_category_name" Mode="In" Type="String" />
+      <Parameter Name="category_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_user_delete">
+      <Parameter Name="user_id" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_user_find_by_username_password" ReturnType="Collection(enigma_gameonModel.sp_user_find_by_username_password_Result)">
+      <Parameter Name="user_username" Mode="In" Type="String" />
+      <Parameter Name="user_password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_user_get_all" ReturnType="Collection(enigma_gameonModel.sp_user_get_all_Result)" />
+    <FunctionImport Name="sp_user_get_by_id" ReturnType="Collection(enigma_gameonModel.sp_user_get_by_id_Result)">
+      <Parameter Name="user_id" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_user_insert">
+      <Parameter Name="user_userID" Mode="In" Type="String" />
+      <Parameter Name="user_username" Mode="In" Type="String" />
+      <Parameter Name="user_password" Mode="In" Type="String" />
+      <Parameter Name="user_email" Mode="In" Type="String" />
+      <Parameter Name="user_phone" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_user_update">
+      <Parameter Name="user_id" Mode="In" Type="String" />
+      <Parameter Name="user_username" Mode="In" Type="String" />
+      <Parameter Name="user_password" Mode="In" Type="String" />
+      <Parameter Name="user_email" Mode="In" Type="String" />
+      <Parameter Name="user_phone" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_sub_category_get_by_id" ReturnType="Collection(enigma_gameonModel.sp_sub_category_get_by_id_Result)">
+      <Parameter Name="sub_category_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_category_get_all_Result">
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+    <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="20" />
+    <Property Type="Int32" Name="DepartmentID" Nullable="true" />
+    <Property Type="String" Name="DepartmentName" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="sp_category_get_all_by_department_id_Result">
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+    <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="20" />
+    <Property Type="Int32" Name="DepartmentID" Nullable="true" />
+    <Property Type="String" Name="DepartmentName" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="sp_department_get_all_Result">
+    <Property Type="Int32" Name="DepartmentId" Nullable="false" />
+    <Property Type="String" Name="DepartmentName" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="sp_department_get_by_id_Result">
+    <Property Type="Int32" Name="DepartmentId" Nullable="false" />
+    <Property Type="String" Name="DepartmentName" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="sp_get_all_categories_by_department_id_Result">
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+    <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="20" />
+    <Property Type="Int32" Name="DepartmentID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_get_all_sub_categories_by_category_id_Result">
+    <Property Type="Int32" Name="SubCategoryID" Nullable="false" />
+    <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_get_cart_details_by_user_id_Result">
+    <Property Type="Int32" Name="CartID" Nullable="false" />
+    <Property Type="Int32" Name="CartStockID" Nullable="false" />
+    <Property Type="Int32" Name="CartQuantity" Nullable="false" />
+    <Property Type="Double" Name="CartUnitCost" Nullable="false" />
+    <Property Type="String" Name="CartClientID" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="StockID" Nullable="false" />
+    <Property Type="Int32" Name="StockProductID" Nullable="false" />
+    <Property Type="Int32" Name="StockColorID" Nullable="false" />
+    <Property Type="Int32" Name="StockSizeID" Nullable="false" />
+    <Property Type="Int32" Name="StockQuantityAvailable" Nullable="false" />
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="String" Name="ProductName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ProductDescription" Nullable="false" MaxLength="Max" />
+    <Property Type="Double" Name="ProductPrice" Nullable="false" />
+    <Property Type="Int32" Name="ProductSubCategoryID" Nullable="false" />
+    <Property Type="String" Name="ProductThumbnail" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="ColorID" Nullable="false" />
+    <Property Type="String" Name="ColorName" Nullable="false" MaxLength="20" />
+    <Property Type="Int32" Name="SizeID" Nullable="false" />
+    <Property Type="String" Name="SizeName" Nullable="false" MaxLength="20" />
+    <Property Type="Double" Name="totalPrice" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_get_colours_by_product_id_Result">
+    <Property Type="Int32" Name="ColorID" Nullable="false" />
+    <Property Type="String" Name="ColorName" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="sp_get_images_by_product_id_Result">
+    <Property Type="Int32" Name="ImageID" Nullable="false" />
+    <Property Type="Int32" Name="ImageProductID" Nullable="false" />
+    <Property Type="String" Name="image" Nullable="true" MaxLength="Max" />
+  </ComplexType>
+  <ComplexType Name="sp_get_product_details_by_id_Result">
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="String" Name="ProductName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ProductDescription" Nullable="false" MaxLength="Max" />
+    <Property Type="Double" Name="ProductPrice" Nullable="false" />
+    <Property Type="Int32" Name="ProductSubCategoryID" Nullable="false" />
+    <Property Type="String" Name="ProductThumbnail" Nullable="true" MaxLength="Max" />
+  </ComplexType>
+  <ComplexType Name="sp_get_recently_added_products_Result">
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="String" Name="ProductName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ProductDescription" Nullable="false" MaxLength="Max" />
+    <Property Type="Double" Name="ProductPrice" Nullable="false" />
+    <Property Type="Int32" Name="ProductSubCategoryID" Nullable="false" />
+    <Property Type="String" Name="ProductThumbnail" Nullable="true" MaxLength="Max" />
+  </ComplexType>
+  <ComplexType Name="sp_get_sizes_by_product_id_Result">
+    <Property Type="Int32" Name="SizeID" Nullable="false" />
+    <Property Type="String" Name="SizeName" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="sp_get_stock_by_product_id_color_id_size_id_Result">
+    <Property Type="Int32" Name="StockID" Nullable="false" />
+    <Property Type="Int32" Name="StockProductID" Nullable="false" />
+    <Property Type="Int32" Name="StockColorID" Nullable="false" />
+    <Property Type="Int32" Name="StockSizeID" Nullable="false" />
+    <Property Type="Int32" Name="StockQuantityAvailable" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_get_top_three_products_by_category_id_Result">
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="String" Name="ProductName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ProductDescription" Nullable="false" MaxLength="Max" />
+    <Property Type="Double" Name="ProductPrice" Nullable="false" />
+    <Property Type="Int32" Name="ProductSubCategoryID" Nullable="false" />
+    <Property Type="String" Name="ProductThumbnail" Nullable="true" MaxLength="Max" />
+  </ComplexType>
+  <ComplexType Name="sp_get_top_three_products_by_sub_category_id_Result">
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="String" Name="ProductName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ProductDescription" Nullable="false" MaxLength="Max" />
+    <Property Type="Double" Name="ProductPrice" Nullable="false" />
+    <Property Type="Int32" Name="ProductSubCategoryID" Nullable="false" />
+    <Property Type="String" Name="ProductThumbnail" Nullable="true" MaxLength="Max" />
+  </ComplexType>
+  <ComplexType Name="sp_product_get_all_Result">
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="String" Name="ProductName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ProductDescription" Nullable="false" MaxLength="Max" />
+    <Property Type="Double" Name="ProductPrice" Nullable="false" />
+    <Property Type="Int32" Name="ProductSubCategoryID" Nullable="false" />
+    <Property Type="String" Name="ProductThumbnail" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="sp_product_get_all_by_sub_category_id_Result">
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="String" Name="ProductName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ProductDescription" Nullable="false" MaxLength="Max" />
+    <Property Type="Double" Name="ProductPrice" Nullable="false" />
+    <Property Type="Int32" Name="ProductSubCategoryID" Nullable="false" />
+    <Property Type="String" Name="ProductThumbnail" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="sp_sub_category_get_all_Result">
+    <Property Type="Int32" Name="SubCategoryID" Nullable="false" />
+    <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+    <Property Type="String" Name="categoryname" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="sp_sub_category_get_all_by_category_id_Result">
+    <Property Type="Int32" Name="SubCategoryID" Nullable="false" />
+    <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+    <Property Type="String" Name="categoryname" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="sp_user_find_by_username_password_Result">
+    <Property Type="String" Name="UserID" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="UserPassword" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="UserEmail" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="UserPhone" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="sp_user_get_all_Result">
+    <Property Type="String" Name="UserID" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="UserPassword" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="UserEmail" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="UserPhone" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="sp_user_get_by_id_Result">
+    <Property Type="String" Name="UserID" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="UserPassword" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="UserEmail" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="UserPhone" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="sp_sub_category_get_by_id_Result">
+    <Property Type="Int32" Name="SubCategoryID" Nullable="false" />
+    <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+  </ComplexType>
+</Schema>
