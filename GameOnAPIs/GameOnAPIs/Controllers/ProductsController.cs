@@ -9,6 +9,9 @@ namespace GameOnAPIs.Controllers
         private enigma_gameonEntities db = new enigma_gameonEntities();
 
         // GET: api/Products
+        /// <summary>
+        /// Get the list of all the products
+        /// </summary>
         public dynamic GetProducts()
         {
             return new { product = db.sp_product_get_all() };            
@@ -16,6 +19,9 @@ namespace GameOnAPIs.Controllers
 
 
         // GET: api/Products
+        /// <summary>
+        /// Get the list of top 6 recently added products
+        /// </summary>
         [ResponseType(typeof(Product))]
         [ActionName("RecentProducts")]
         public dynamic GetRecentProducts()
@@ -25,6 +31,9 @@ namespace GameOnAPIs.Controllers
         }
 
         // GET: api/Products/5
+        /// <summary>
+        /// Get the details of a specific product using product id
+        /// </summary>
         [ResponseType(typeof(Product))]
         public dynamic GetProduct(int id)
         {

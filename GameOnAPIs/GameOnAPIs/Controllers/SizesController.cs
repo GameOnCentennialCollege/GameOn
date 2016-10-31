@@ -28,6 +28,9 @@ namespace GameOnAPIs.Controllers
         //}
 
         // GET: api/Sizes/product/5
+        /// <summary>
+        /// Get the list of available sizes for a particular product
+        /// </summary>
         [ResponseType(typeof(Size))]
         [ActionName("product")]
         public dynamic GetSizesByProductID(int id)

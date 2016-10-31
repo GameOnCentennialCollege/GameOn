@@ -4,56 +4,42 @@ using System.Web.Http.Description;
 
 namespace GameOnAPIs.Controllers
 {
-    public class ColorsController : ApiController
+    public class StocksController : ApiController
     {
         private enigma_gameonEntities db = new enigma_gameonEntities();
 
-        //// GET: api/Colors
-        //public IQueryable<Color> GetColors()
+        //// GET: api/Stocks
+        //public IQueryable<Stock> GetStocks()
         //{
-        //    return db.Colors;
+        //    return db.Stocks;
         //}
 
-        //// GET: api/Colors/5
-        //[ResponseType(typeof(Color))]
-        //public IHttpActionResult GetColor(int id)
-        //{
-        //    Color color = db.Colors.Find(id);
-        //    if (color == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return Ok(color);
-        //}
-
-        // GET: api/Colors/product/5
+        // GET: api/Stocks/5
         /// <summary>
-        /// Get the list of available colors for a particular product
+        /// check if the particular product is available in specific color and size
         /// </summary>
-        [ResponseType(typeof(Color))]
-        [ActionName("product")]
-        public dynamic GetColorsByProductID(int id)
-        {
+        [ResponseType(typeof(Stock))]
 
-            return new { color = db.sp_get_colours_by_product_id(id) };
+        public dynamic GetStock(int product_id, int color_id, int size_id)
+        {
+            return new { stock = db.sp_get_stock_by_product_id_color_id_size_id(product_id,color_id,size_id) };            
         }
 
-        //// PUT: api/Colors/5
+        //// PUT: api/Stocks/5
         //[ResponseType(typeof(void))]
-        //public IHttpActionResult PutColor(int id, Color color)
+        //public IHttpActionResult PutStock(int id, Stock stock)
         //{
         //    if (!ModelState.IsValid)
         //    {
         //        return BadRequest(ModelState);
         //    }
 
-        //    if (id != color.ColorID)
+        //    if (id != stock.StockID)
         //    {
         //        return BadRequest();
         //    }
 
-        //    db.Entry(color).State = EntityState.Modified;
+        //    db.Entry(stock).State = EntityState.Modified;
 
         //    try
         //    {
@@ -61,7 +47,7 @@ namespace GameOnAPIs.Controllers
         //    }
         //    catch (DbUpdateConcurrencyException)
         //    {
-        //        if (!ColorExists(id))
+        //        if (!StockExists(id))
         //        {
         //            return NotFound();
         //        }
@@ -74,16 +60,16 @@ namespace GameOnAPIs.Controllers
         //    return StatusCode(HttpStatusCode.NoContent);
         //}
 
-        //// POST: api/Colors
-        //[ResponseType(typeof(Color))]
-        //public IHttpActionResult PostColor(Color color)
+        //// POST: api/Stocks
+        //[ResponseType(typeof(Stock))]
+        //public IHttpActionResult PostStock(Stock stock)
         //{
         //    if (!ModelState.IsValid)
         //    {
         //        return BadRequest(ModelState);
         //    }
 
-        //    db.Colors.Add(color);
+        //    db.Stocks.Add(stock);
 
         //    try
         //    {
@@ -91,7 +77,7 @@ namespace GameOnAPIs.Controllers
         //    }
         //    catch (DbUpdateException)
         //    {
-        //        if (ColorExists(color.ColorID))
+        //        if (StockExists(stock.StockID))
         //        {
         //            return Conflict();
         //        }
@@ -101,23 +87,23 @@ namespace GameOnAPIs.Controllers
         //        }
         //    }
 
-        //    return CreatedAtRoute("DefaultApi", new { id = color.ColorID }, color);
+        //    return CreatedAtRoute("DefaultApi", new { id = stock.StockID }, stock);
         //}
 
-        //// DELETE: api/Colors/5
-        //[ResponseType(typeof(Color))]
-        //public IHttpActionResult DeleteColor(int id)
+        //// DELETE: api/Stocks/5
+        //[ResponseType(typeof(Stock))]
+        //public IHttpActionResult DeleteStock(int id)
         //{
-        //    Color color = db.Colors.Find(id);
-        //    if (color == null)
+        //    Stock stock = db.Stocks.Find(id);
+        //    if (stock == null)
         //    {
         //        return NotFound();
         //    }
 
-        //    db.Colors.Remove(color);
+        //    db.Stocks.Remove(stock);
         //    db.SaveChanges();
 
-        //    return Ok(color);
+        //    return Ok(stock);
         //}
 
         protected override void Dispose(bool disposing)
@@ -129,9 +115,9 @@ namespace GameOnAPIs.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ColorExists(int id)
+        private bool StockExists(int id)
         {
-            return db.Colors.Count(e => e.ColorID == id) > 0;
+            return db.Stocks.Count(e => e.StockID == id) > 0;
         }
     }
 }

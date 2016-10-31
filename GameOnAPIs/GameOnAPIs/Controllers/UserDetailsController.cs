@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Net;
 using System.Web.Http;
 using System.Web.Http.Description;
 
@@ -19,6 +16,9 @@ namespace GameOnAPIs.Controllers
         //}
 
         // GET: api/UserDetails/5
+        /// <summary>
+        /// Get the details of a particular user by using user id
+        /// </summary>
         [ResponseType(typeof(UserDetail))]
         public dynamic GetUserDetail(string user_id)
         {
@@ -61,6 +61,9 @@ namespace GameOnAPIs.Controllers
         //}
 
         // POST: api/UserDetails
+        /// <summary>
+        /// check the user details by using username and password. used for login
+        /// </summary>
         [ResponseType(typeof(UserDetail))]
         [ActionName("Login")]
         public dynamic PostUserDetail(UserDetail userDetail)
@@ -70,6 +73,9 @@ namespace GameOnAPIs.Controllers
         }
 
         // POST: api/UserDetails/
+        /// <summary>
+        /// insert new user to the database. used when new user tries to register
+        /// </summary>
         [ResponseType(typeof(UserDetail))]
         [ActionName("Register")]
         public dynamic RegisterUserDetail(UserDetail userDetail)

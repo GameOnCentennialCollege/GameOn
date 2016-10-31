@@ -9,12 +9,18 @@ namespace GameOnAPIs.Controllers
         private enigma_gameonEntities db = new enigma_gameonEntities();
 
         // GET: api/Categories
+        /// <summary>
+        /// Get the list of all the categories
+        /// </summary>
         public dynamic GetCategories()
         {
             return new { category = db.sp_category_get_all() };
         }
 
         // GET: api/Categories/5
+        /// <summary>
+        /// Get the list of all the categories for a specific department
+        /// </summary>
         [ResponseType(typeof(Category))]
         public dynamic GetCategory(int dept_id)
         {

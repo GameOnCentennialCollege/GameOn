@@ -9,12 +9,18 @@ namespace GameOnAPIs.Controllers
         private enigma_gameonEntities db = new enigma_gameonEntities();
 
         // GET: api/SubCategories
+        /// <summary>
+        /// Get the list of all the sub categories
+        /// </summary>
         public dynamic GetSubCategories()
         {
             return new { SubCategory = db.sp_sub_category_get_all() };
         }
 
         // GET: api/SubCategories/5
+        /// <summary>
+        /// Get the details of a specific sub category by using sub category id
+        /// </summary>
         [ResponseType(typeof(SubCategory))]
         [ActionName("subcategory")]
         public dynamic GetSubCategory(int id)
@@ -23,6 +29,9 @@ namespace GameOnAPIs.Controllers
         }
 
         // GET: api/SubCategories/5
+        /// <summary>
+        /// Get the list of all the sub categories in a specific category
+        /// </summary>
         [ResponseType(typeof(SubCategory))]
         [ActionName("category")]
         public dynamic GetSubCategoryByCategory(int id)

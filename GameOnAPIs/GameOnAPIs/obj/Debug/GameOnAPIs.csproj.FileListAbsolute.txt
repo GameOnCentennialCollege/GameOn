@@ -29,3 +29,4 @@ c:\users\dhammi\documents\visual studio 2013\Projects\GameOnAPIs\GameOnAPIs\bin\
 c:\users\dhammi\documents\visual studio 2013\Projects\GameOnAPIs\GameOnAPIs\bin\System.Web.WebPages.Deployment.xml
 c:\users\dhammi\documents\visual studio 2013\Projects\GameOnAPIs\GameOnAPIs\bin\System.Web.WebPages.Razor.xml
 C:\Users\Dhammi\Documents\Visual Studio 2013\Projects\GameOnAPIs\GameOnAPIs\obj\Debug\GameOnAPIs.csprojResolveAssemblyReference.cache
+C:\Users\Dhammi\Documents\Visual Studio 2013\Projects\GameOnAPIs\GameOnAPIs\bin\XmlDocument.xml
