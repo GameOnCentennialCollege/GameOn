@@ -8,7 +8,15 @@ namespace GameOnAPIs.Controllers
     {
         private enigma_gameonEntities db = new enigma_gameonEntities();
 
-        
+        // GET: api/Carts/5
+        /// <summary>
+        /// Get cart details using user id
+        /// </summary>
+        [ResponseType(typeof(Cart))]
+        public dynamic GetCart(string user_id)
+        {
+            return new { cart = db.sp_get_cart_details_by_user_id(user_id) };
+        }
 
         // POST: api/Carts
         /// <summary>

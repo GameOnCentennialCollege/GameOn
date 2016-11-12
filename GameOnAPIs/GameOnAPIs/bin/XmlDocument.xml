@@ -481,6 +481,16 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="M:GameOnAPIs.Controllers.CartsController.GetCart(System.String)">
+            <summary>
+            Get cart details using user id
+            </summary>
+        </member>
+        <member name="M:GameOnAPIs.Controllers.CartsController.PostCart(GameOnAPIs.Cart)">
+            <summary>
+            insert new item to the cart (stock id, quantity, unit cost, user id).
+            </summary>
+        </member>
         <member name="M:GameOnAPIs.Controllers.CategoriesController.GetCategories">
             <summary>
             Get the list of all the categories
